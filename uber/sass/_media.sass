@@ -1,0 +1,259 @@
+@media (max-width: 1200px)
+    .menu
+        &_item
+            padding-right: 20px
+        &_link
+            font-size: 13px
+    .promo
+        &_header
+            font-size: 50px
+    .reasons
+        &_block
+            align-items: flex-start
+        &_descr
+            width: 300px
+    .mobile
+        &_item
+            width: 300px
+@media (max-width: 991px)
+    .menu
+        &_item
+            padding-right: 8px
+        &_link
+            font-size: 10px
+    .subheader
+        &_logo
+            img
+                width: 100%
+        &_official
+            font-size: 11px
+        &_phone
+            font-size: 18px
+        &_btn
+            margin-top: 21px
+            height: 40px
+            width: 100%
+    .promo
+        &_header
+            font-size: 40px
+        &_subheader
+            font-size: 28px
+    .reasons
+        &_block
+            flex-direction: column
+            align-items: center
+            &_descr
+                width: 300px
+                &_subtitle
+                    margin-top: 20px
+            &_round
+                margin-right: 0
+    .mobile
+        &_item
+            width: 230px
+    .choice
+        &_img
+            img
+                width: 90%
+                height: 90%
+    footer
+        .footer
+            .main_link
+                &_item
+                    font-size: 11px
+            .secondary_link
+                &_item
+                    font-size: 10px
+        .social
+            .social_div
+                .social
+                    width: 30px
+                    height: 30px
+                
+@media (max-width: 767px)
+    .menu
+        position: fixed
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        top: 0
+        left: -100%
+        width: 50%
+        height: 100vh
+        padding: 20px 15px
+        background-color: rgba(0,0,0,.8)
+        transition: 0.6s all ease-out
+        &_active
+            left: 0
+        &_item
+            padding-right: 0
+            border: none
+        &_link
+            font-size: 20px
+    .hamburger
+        display: block
+        position: absolute
+        right: 10px
+        top: 50%
+        transform: translateY(-50%)
+        width: 20px
+        height: 12px
+        span
+            display: block
+            height: 2px
+            width: 100%
+            background-color: #fff
+            margin-bottom: 2px
+            transition: 0.8s all ease
+        &_active
+            span
+                margin-bottom: -2px
+                &:nth-child(1)
+                    transform: translateY(3px) rotate(-45deg) 
+                &:nth-child(2)
+                    display: none
+                &:nth-child(3)
+                    transform: translateY(3px) rotate(45deg) 
+    .xs-hidden
+        display: none
+    .xs-visible
+        display: block
+    .subheader
+        &_phone
+            display: block
+            margin-top: 10px
+            color: #ffffff
+            font-size: 16px
+            font-weight: 400
+            text-align: center
+            text-transform: uppercase
+        &_btn
+            display: block
+            width: 200px
+            height: 40px
+            margin: 0 auto
+            margin-top: 10px
+    .promo
+        &_header
+            line-height: 40px
+    .title
+        font-size: 31px
+    .choice
+        &_img
+            height: 432px
+            width: 574px
+    footer
+        .footer
+            .main_link
+                &_item
+                    font-size: 11px
+            .secondary_link
+                &_item
+                    font-size: 10px
+        .social
+            .social_div
+                left: -15px
+                .social
+                    width: 24px
+                    height: 24px
+
+@media (max-width: 575px)
+    nav
+        height: 30px
+    header
+        height: 30px
+    .subheader
+        height: 60px
+        top: 30px
+        &_official
+            display: none 
+        &_logo
+            margin-top: 16px
+        &_phone
+            font-size: 12px
+            margin-top: 11px
+        &_btn
+            width: 110px
+            height: 22px
+            font-size: 10px
+            margin-top: 9px
+    .promo
+        min-height: 400px
+        padding: 93px 0 35px 0 
+        &_header
+            line-height: 35px
+            font-size: 30px
+            padding: 0 24px 
+        &_subheader
+            margin-top: 33px
+            font-size: 21px
+            line-height: 30px
+            padding: 0 10px
+        &_descr
+            display: none
+        &_btn
+            width: 210px
+            height: 50px
+            font-size: 16px
+            margin-top: 72px
+    .menu
+        width: 85%
+        &_item
+            width: 100%
+            text-align: center
+            margin-top: 20px
+            padding: 4px 0
+            a
+                display: block
+    .title
+        font-size: 16px
+        margin-top: 15px
+    .reasons
+        padding: 22px 16px 36px 16px
+        &_block 
+            margin-top: 26px
+            &_round 
+                width: 100px
+                height: 100px
+            &_descr
+                width: 100%
+                margin-top: 27px
+                &_text 
+                    margin-top: 0
+                &_subtitle 
+                    font-size: 16px
+                    text-align: left
+    .choice
+        &_img
+            height: 293px
+            width: 306px
+            img
+                width: 97%
+                height: 100%
+    .world
+        &_link
+            margin-top: 380px
+    footer
+        .footer
+            &_divider
+                width: 230px
+            .main_link
+                margin-top: 11px
+                &_item
+                    font-size: 11px
+            .secondary_link
+                flex-wrap: wrap
+                &_item
+                    font-size: 10px
+        .social
+            display: flex
+            justify-content: center
+            .social_div
+                position: static
+                .social
+                    width: 24px
+                    height: 24px
+                    margin-left: 4px
+
+
+        
