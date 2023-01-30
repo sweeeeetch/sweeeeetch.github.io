@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub users API</title>
+  <script type="module" crossorigin src="assets/index-9f949773.js"></script>
+  <link rel="stylesheet" href="assets/index-801430fc.css">
+</head>
+
+<body>
+        <div class="card search">
+            <h2> GitHub users API</h2>
+            <label class="input">
+                <input class="input__field" name="search" type="text" placeholder=" " />
+                <span class="input__label">Введите имя пользователя</span>
+            </label>
+            <div class="button-group">
+                <button type="submit" class="sendBtn search__btn">Send</button>
+                <button class="reset search__btn" type="reset">Reset</button>
+                <div class="error"><span>Ошибка! Пользователь не найден!</span></div>
+            </div>
+        </div>
+        <div class="window card">
+            <div class="overview"></div>
+            <div class="tabs">
+                <div class="btns">
+                    <button class="accordion-tab accordion-active tab_btn" data-actab-group="0" data-actab-id="1">Repositories <span
+                            class="repos"></span></button>
+                </div>
+                    <article class="accordion-item accordion-active" data-actab-group="0" data-actab-id="1">
+                        <h4 class="accordion-item__label"></h4>
+                        <div class="reposits"></div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    
+</body>
+
+</html>
