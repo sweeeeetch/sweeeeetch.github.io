@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+@import 'weather.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+img {
+    height: 96px;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.question {
+    display: flex;
+    // display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 600px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 10px solid transparent;
+    border-image: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 35%, rgba(252,176,69,1) 65%, rgba(131,58,180,1) 100%);
+    border-image-slice: 1;
+    .error-geo {
+        position: absolute;
+        top: -25%;
+        font-family: 'Montserrat';
+        display: none;
+        font-size: 16px;
+        width: 350px;
+        height: 50px;
+        font-weight: 600;
+        color: red;
+    }
+    &__title {
+        font-family: 'Montserrat';
+        margin-top: 82px;
+        text-align: center;
+    }
+    &__btn {
+        margin: 0 auto;
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 26px;
+        height: 75px;
+        width: 260px;
+        cursor: pointer;
+        border: none;
+        margin-bottom: 96px;
+        color: #fff;
+        background: linear-gradient(90deg, rgba(180,102,232,1) 0%, rgba(255,59,59,1) 100%);
+    }
+}
+.weather {
+    // display: none;
+    margin: 0 auto;
+    margin-top: 75px;
+    width: 1140px;
+    min-height: 800px;
+    border: 1px solid red;
+
+}
+.active {
+    animation: show 1s 1;
+    display: block;
+} 
+.inactive {
+    display: none;
+    animation: hide 1s 1;
+}
+@keyframes hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* 
+<div class="weather__main">
+          <h1 class="weather__title">Прогноз погоды на <span class="time">30 января 2023 г., 21:06</span></h1>
+          <div class="weather__timezone">Временная зона: Asia/Vladivostok/+10, Высота: 23</div>
+          <div class="weather__current">
+            <img src="icons/dailyIcons/7.png" alt="" class="weather__current-left-img">  <!-- img -->
+            <div class="weather__current-left">
+              <div class="weather__current-left-temp text">-11.1°C</div><!-- temp -->
+              <div class="weather__current-left-wind text">Ветер: &uarr;3.18m/s</div><!-- wind & direction & speed -->
+            </div>
+            <div class="weather__current-right">
+              <div class="weather__current-right-precipitations text">Осадки: 53mm</div>  <!-- precipitations -->
+              <div class="weather__current-right-visibility text">Вимдимость: 24140m</div>  <!-- visibility -->
+              <div class="weather__current-right-humidity text">Влажность: 53%</div>  <!-- humidity -->
+            </div>
+          </div>
+        </div>
+        <div class="weather__next">
+          <h3 class="weather__subtitle">На следующие 5 часов</h3> <!-- //! -->
+          <div class="weather__next-hours">
+            <div class="weather__next-hour" data-hour="1">
+              <div class="weather__next-hour-text text-title"><p>Время:</p></div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2"><p>Температура:</p></div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2"><p>Осадки и Влажность:</p></div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2"><p>Скорость и направление ветра:</p></div>  <!-- wind speed & direction -->
+            </div>
+            <div class="weather__next-hour" data-hour="1">
+              <div class="weather__next-hour-text text-title">22</div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2">-12.8°C</div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2">0</div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2">3.01 m/s   |   21С<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="30px" height="30px" viewBox="0 0 24 24" style="transform: rotate(21deg); position: absolute; top: -5px;" id="up-arrow" data-name="Flat Line" class="icon flat-line"><line id="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="15 6 12 3 9 6" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></svg></div>  <!-- wind speed & direction -->
+            </div>
+            <div class="weather__next-hour" data-hour="2">
+              <div class="weather__next-hour-text text-title">23</div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2">-12.7°C</div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2">0</div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2">3.44 m/s   |   26С<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="30px" height="30px" viewBox="0 0 24 24" style="transform: rotate(26deg); position: absolute; top: -5px;" id="up-arrow" data-name="Flat Line" class="icon flat-line"><line id="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="15 6 12 3 9 6" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></svg></div>  <!-- wind speed & direction -->
+            </div>
+            <div class="weather__next-hour" data-hour="3">
+              <div class="weather__next-hour-text text-title">24</div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2">-13°C</div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2">0</div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2">3.85 m/s   |   28С<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="30px" height="30px" viewBox="0 0 24 24" style="transform: rotate(28deg); position: absolute; top: -5px;" id="up-arrow" data-name="Flat Line" class="icon flat-line"><line id="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="15 6 12 3 9 6" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></svg></div>  <!-- wind speed & direction -->
+            </div>
+            <div class="weather__next-hour" data-hour="4">
+              <div class="weather__next-hour-text text-title">25</div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2">-13.3°C</div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2">0</div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2">3.9 m/s   |   23С<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="30px" height="30px" viewBox="0 0 24 24" style="transform: rotate(23deg); position: absolute; top: -5px;" id="up-arrow" data-name="Flat Line" class="icon flat-line"><line id="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="15 6 12 3 9 6" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></svg></div>  <!-- wind speed & direction -->
+            </div>
+            <div class="weather__next-hour" data-hour="5">
+              <div class="weather__next-hour-text text-title">26</div>  <!-- hour -->
+              <div class="weather__next-hour-temp text-2">-13.3°C</div>  <!-- temp  -->
+              <div class="weather__next-hour-prec text-2">0</div>  <!-- precipitation & humidity -->
+              <div class="weather__next-hour-wind text-2">4.18 m/s   |   21С<svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="30px" height="30px" viewBox="0 0 24 24" style="transform: rotate(21deg); position: absolute; top: -5px;" id="up-arrow" data-name="Flat Line" class="icon flat-line"><line id="primary" x1="12" y1="21" x2="12" y2="3" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="15 6 12 3 9 6" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline></svg></div>  <!-- wind speed & direction -->
+            </div>
+          </div>
+        </div>
+        <div class="weather__week">
+          <h3 class="weather__subtitle">На неделю</h3>
+          <div class="weather__week-wrapper">
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">Вт</div>  <!-- day -->
+              <img src="icons/dailyIcons/7.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -3.9, min: -9
+              </div>  <!-- temp -->
+            </div>
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">Ср</div>  <!-- day -->
+              <img src="icons/dailyIcons/1.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -7.6, min: -12.6
+              </div>  <!-- temp -->
+            </div>
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">Чт</div>  <!-- day -->
+              <img src="icons/dailyIcons/3.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -6, min: -14
+              </div>  <!-- temp -->
+            </div>
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">Пт</div>  <!-- day -->
+              <img src="icons/dailyIcons/3.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -3.3, min: -12.3
+              </div>  <!-- temp -->
+            </div>
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">Сб</div>  <!-- day -->
+              <img src="icons/dailyIcons/3.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -2.5, min: -12.4
+              </div>  <!-- temp -->
+            </div>
+            <div class="weather__weak-day">
+              <div class="weather__weak-day-text text-title">undefined</div>  <!-- day -->
+              <img src="icons/dailyIcons/7.png" alt="" class="weather__weak-day-img">  <!-- img -->
+              <div class="weather__weak-day-temp text-small">
+                Max: -0.8, min: -9.8
+              </div>  <!-- temp -->
+            </div>
+          </div>
+        </div>
+*/
